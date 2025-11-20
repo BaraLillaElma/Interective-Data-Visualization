@@ -1,0 +1,30 @@
+:root{--bg:#0b0f14;--fg:#e5e7eb;--muted:#94a3b8;--accent:#22d3ee;--panel:#111827;--line:#374151}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.4 system-ui,-apple-system,Segoe UI,Roboto}
+.topbar{display:flex;gap:8px;align-items:center;padding:8px 12px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--panel)}
+.brand{font-weight:700;margin-right:8px}
+.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.btn{background:#1f2937;color:var(--fg);border:1px solid #334155;padding:6px 10px;border-radius:6px;cursor:pointer}
+.btn:hover{background:#111827}
+.input{background:#0b1220;color:var(--fg);border:1px solid #1f2937;border-radius:6px;padding:6px 8px;min-width:180px}
+.layout{display:grid;grid-template-columns:320px 1fr;height:calc(100vh - 48px)}
+.sidepanel{border-right:1px solid var(--line);padding:12px;overflow:auto}
+.explorer{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size:12px}
+.explorer ul{list-style:none;padding-left:14px;margin:0}
+.explorer li{margin:2px 0}
+.explorer .toggle{cursor:pointer;color:#a3e635}
+.explorer .file{cursor:pointer}
+.explorer .folder{color:#7dd3fc}
+.canvas-wrap{position:relative}
+#tree{background:#030712}
+.context-menu{position:absolute;background:#0b1220;border:1px solid #334155;border-radius:8px;min-width:220px;padding:6px;box-shadow:0 10px 32px rgba(0,0,0,.45);z-index:1000}
+.context-menu button{width:100%;text-align:left;margin:2px 0}
+#details{font-size:13px;color:var(--fg)}
+.node.match rect{outline:2px solid var(--accent)}
+.node text{pointer-events:none}
+dialog{border:none;border-radius:10px;padding:16px;background:#0b1220;color:var(--fg)}
+.dialog-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:12px}
+.badge{display:inline-block;padding:1px 6px;border-radius:6px;background:#082f49;color:#7dd3fc;border:1px solid #0ea5e9}
+
+

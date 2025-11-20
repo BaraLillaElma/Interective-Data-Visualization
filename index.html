@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Interactive Hierarchical Data Visualization</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Interactive Data Visualization</div>
+    <div class="controls">
+      <select id="modeSelect" title="Mod seçin">
+        <option value="repo">Repo Modu</option>
+        <option value="personal">Kişisel Mod</option>
+      </select>
+      <input id="repoInput" class="input" placeholder="owner/repo veya GitHub URL" />
+      <input id="branchInput" class="input" placeholder="branch (opsiyonel)" />
+      <button id="loadBtn" class="btn">Yükle</button>
+      <input id="searchInput" class="input" placeholder="Ara (ad, yol, etiket)" />
+      <button id="exportBtn" class="btn" title="JSON dışa aktar">Dışa Aktar</button>
+      <label class="fileBtn btn" title="JSON içe aktar">
+        İçe Aktar
+        <input id="importFile" type="file" accept="application/json" hidden />
+      </label>
+      <button id="settingsBtn" class="btn" title="Ayarlar">⚙</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="sidepanel" id="sidepanel">
+      <h3>Explorer</h3>
+      <div id="explorer" class="explorer"></div>
+      <h3>Detay</h3>
+      <div id="details"></div>
+      <h3>Rate limit</h3>
+      <div id="ratelimit">—</div>
+    </aside>
+    <section class="canvas-wrap">
+      <svg id="tree" width="100%" height="100%" role="img" aria-label="hiyerarşik ağaç"></svg>
+      <div id="contextMenu" class="context-menu" hidden></div>
+    </section>
+  </main>
+
+  <dialog id="settingsDialog">
+    <form method="dialog">
+      <h3>Ayarlar</h3>
+      <label>GitHub Token (PAT)
+        <input id="tokenInput" class="input" placeholder="ghp_…" />
+      </label>
+      <div class="dialog-actions">
+        <button id="saveSettingsBtn" class="btn" value="ok">Kaydet</button>
+        <button class="btn" value="cancel">Kapat</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>
+
+
